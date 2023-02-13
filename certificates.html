@@ -75,8 +75,10 @@
           <span>or</span>
         </div>
         <h3 class="description">Scan certificate's QR code</h3>
-          <div class="scan-qr" id="scan" onclick="scan()"></div>
-          <div id="reader"></div>
+        <div class="scan-qr" id="scan" onclick="scan()"></div>
+        <div id="reader"></div>
+        <div id="result"></div>
+
       </div>
     </section>
 
@@ -103,14 +105,11 @@
 
     <!-- include the library -->
     <script src="assest/js/html5-qrcode.min.js"></script>
-     <script>
-      function success(result) {
-        document.getElementById("result").innerHTML = `
-            <h2>success</h2>
-            <p><a href="${result}">${result}</a></p>
-        `;
-        scanner.clear();
-        document.getElementById("reader").remove();
+    <script>
+      function success(decodedText, decodedResult) {
+        document.getElementById('result').innerHTML=`<a class='btn' href='${decodedText}'>Your certificate</a>`
+        document.getElementById("scan").style.display = "block";
+        html5QrcodeScanner.clear();
       }
       var html5QrcodeScanner = new Html5QrcodeScanner("reader", {
         fps: 10,
@@ -120,6 +119,7 @@
       function scan() {
         html5QrcodeScanner.render(success);
         document.getElementById("scan").style.display = "none";
+        document.getElementById('result').innerHTML=``;
       }
     </script>
   </body>
