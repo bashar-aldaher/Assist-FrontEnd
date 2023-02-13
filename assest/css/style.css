@@ -597,6 +597,7 @@ header .container {
   padding: 20px;
   border: 1px solid var(--secondary-color);
   transition: 0.3s;
+  text-align: center;
 }
 
 .btn:hover {
@@ -700,6 +701,11 @@ footer .social-icons-list a:hover {
   transform: translateX(-50%);
   width: 50%;
 }
+@media (max-width: 768px) {
+  #foundCertificateSection form{
+    width: 100%;
+  }
+}
 #reader {
   position: relative;
   left: 50%;
@@ -728,6 +734,8 @@ footer .social-icons-list a:hover {
   background-color: transparent;
 }
 .scan-qr {
+  cursor: pointer;
+  display: block;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
