@@ -103,15 +103,23 @@
 
     <!-- include the library -->
     <script src="assest/js/html5-qrcode.min.js"></script>
-    <script>
+     <script>
+      function success(result) {
+        document.getElementById("result").innerHTML = `
+            <h2>success</h2>
+            <p><a href="${result}">${result}</a></p>
+        `;
+        scanner.clear();
+        document.getElementById("reader").remove();
+      }
       var html5QrcodeScanner = new Html5QrcodeScanner("reader", {
         fps: 10,
         qrbox: 250,
       });
-     
-      function scan(){
-        html5QrcodeScanner.render(html5QrcodeScanner);
-        document.getElementById('scan').style.display='none';
+
+      function scan() {
+        html5QrcodeScanner.render(success);
+        document.getElementById("scan").style.display = "none";
       }
     </script>
   </body>
