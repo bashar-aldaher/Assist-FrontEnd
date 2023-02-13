@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- font awesome 5  -->
+    <link rel="stylesheet" href="assest/Plugins/Font-awesome/css/all.min.css" />
+    <!-- Owl Carousel  -->
+    <link
+      rel="stylesheet"
+      href="assest/Plugins/owlcarousel/assets/owl.carousel.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="assest/Plugins/owlcarousel/assets/owl.theme.default.min.css"
+    />
+    <!-- Aos  -->
+    <link rel="stylesheet" href="assest/Plugins/Aos/aos.css" />
+    <!-- Costomize Style  -->
+    <style>
+      :root {
+        --main-color: #117c7b;
+        --secondary-color: #1d2847;
+        --light-color: #ecebeb;
+      }
+    </style>
+    <link rel="stylesheet" href="assest/css/style.css" />
+    <title>Assist</title>
+  </head>
+  <body>
+    <!-- nav  -->
+    <nav class="top-nav" id="topNav">
+      <div class="container">
+        <a href="#" class="logo-aria">
+          <img src="logo.png" />
+          <span>Assist</span>
+        </a>
+        <div class="menu-aria">
+          <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="certificates.html">Authenticated certificates</a></li>
+          </ul>
+          <div class="nav-assest">
+            <a
+              href="javascript:void(0);"
+              class="mobile-menu-btn"
+              onclick="showMobileNav()"
+            >
+              <i class="fa fa-bars"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- end nav  -->
+
+    <section id="foundCertificateSection">
+      <h2 class="section-title">Find Your Certificate</h2>
+      <h3 class="description">
+        But your certificate code to check if it's real
+      </h3>
+      <div class="container">
+        <form>
+          <input
+            placeholder="Enter your name"
+            class="form-input"
+            name="name"
+            id="name"
+            type="text"
+          />
+          <button class="btn" type="submit">send</button>
+        </form>
+        <div class="or">
+          <hr />
+          <span>or</span>
+        </div>
+        <h3 class="description">Scan certificate's QR code</h3>
+          <div class="scan-qr" id="scan" onclick="scan()"></div>
+          <div id="reader"></div>
+      </div>
+    </section>
+
+    <!-- Footer  -->
+    <footer>
+      <ul class="social-icons-list">
+        <li>
+          <a href="https://www.facebook.com/we.assist.it"
+            ><i class="fab fa-facebook"></i
+          ></a>
+        </li>
+        <li>
+          <a href="https://t.me/we_assist_it"
+            ><i class="fab fa-telegram"></i
+          ></a>
+        </li>
+        <li>
+          <a href=""><i class="fab fa-whatsapp"></i></a>
+        </li>
+      </ul>
+      <div class="copyright">&copy; 2022 Assist company</div>
+    </footer>
+    <!-- End Footer  -->
+
+    <!-- include the library -->
+    <script src="assest/js/html5-qrcode.min.js"></script>
+    <script>
+      var html5QrcodeScanner = new Html5QrcodeScanner("reader", {
+        fps: 10,
+        qrbox: 250,
+      });
+     
+      function scan(){
+        html5QrcodeScanner.render(html5QrcodeScanner);
+        document.getElementById('scan').style.display='none';
+      }
+    </script>
+  </body>
+</html>
